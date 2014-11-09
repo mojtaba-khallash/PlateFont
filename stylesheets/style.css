@@ -1,0 +1,232 @@
+@font-face {
+	font-family: 'plate';
+	src: url('../font/plate.eot');
+	src: url('../font/plate.eot?#iefix') format('embedded-opentype'),
+		 url('../font/plate.woff') format('woff'),
+		 url('../font/plate.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+.plateContainer {
+	font-weight: normal;
+	direction:ltr;
+	float:left;
+	padding:0 0.05em;
+	white-space:nowrap;
+}
+.icon-stack {
+	position: relative;
+	display: inline-block;
+	height: 1.46em;
+	vertical-align: middle;
+	margin-left: -1px;
+}
+.icon-stack-2x {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 2em;
+}
+.icon {
+	font-family: plate;
+}
+
+.stack-fitst {
+	position: static;
+}
+.plateContainer * {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+.plate-input {
+	border: 0 none;
+	background: transparent;
+	font-family: plate;
+	height: 0.8em;
+}
+span.sub-number {
+	top: 0.1em;
+	width: 0.42em;
+	font-size: 1.63em;
+}
+input.sub-number {
+	font-size: 1.6em;
+	margin-top: 0.045em;
+	border-top: 0.3em solid transparent ! important;
+	width: 0.401em;
+}
+.motorcycle .plate-char {
+	font-size: 1.5em;
+}
+.motorcycle .plate-input {
+	height: 0.7em;
+}
+.motorcycle .pchar0 {
+	margin-left:0.53em;
+	line-height: 0.7em;
+}
+.motorcycle .pchar1 {
+	margin-left:0.86em;
+	line-height: 0.7em;
+}
+.motorcycle .pchar2 {
+	margin-left:1.21em;
+	line-height: 0.7em;
+}
+.motorcycle .pchar3 {
+	margin-left:0.07em;
+	line-height: 1.77em;
+}
+.motorcycle .pchar4 {
+	margin-left:0.4em;
+	line-height: 1.77em;
+}
+.motorcycle .pchar5 {
+	margin-left:0.74em;
+	line-height: 1.77em;
+}
+.motorcycle .pchar6 {
+	margin-left:1.07em;
+	line-height: 1.77em;
+}
+.motorcycle .pchar7 {
+	margin-left:1.4em;
+	line-height: 1.77em;
+}
+.motorcycle input.pchar3,
+.motorcycle input.pchar4,
+.motorcycle input.pchar5,
+.motorcycle input.pchar6,
+.motorcycle input.pchar7,
+.motorcycle input.pchar8 {
+	margin-top: 0.54em;
+}
+.img-plate {
+	position: absolute;
+	width: 1.05em;
+	margin-left: 0.09em;
+	margin-top: 0.84em;
+	padding: 0px;
+	z-index: 1;
+}
+
+.historical .plate-char {
+	font-size: 1.3em;
+	margin-top: 0.43em;
+}
+.historical input.plate-char {
+	width: 0.4em;
+	margin-top: 0.6em;
+	background: transparent;
+}
+.freeTradeZone .plate-char {
+	width: 0.25em;
+	font-size: 1.3em;
+	margin-left: 0.08em;
+	margin-top: -0.25em;
+	display: inline-block;
+    position: relative;
+}
+.freeTradeZone span.pchar4 {
+	margin-right: 0.1em;
+}
+.freeTradeZone input.plate-char {
+	width: 0.355em;
+	margin-left: -0.002em;
+	margin-top: -0.05em;
+	background: transparent;
+	display: inline-block;
+    position: relative;
+}
+.freeTradeZone input.pchar0 {
+	margin-left: 0.025em;
+}
+.freeTradeZone input.pchar4 {
+	margin-right: 0.02em;
+	margin-left: -0.05em;
+}
+.freeTradeZone {
+	height: 1.75em;
+}
+.historical .pchar0 { margin-left: 0.09em; }
+.historical .pchar1 { margin-left: 0.41em; }
+.historical .pchar2 { margin-left: 0.73em; }
+.historical .pchar3 { margin-left: 1.05em; }
+.historical .pchar4 { margin-left: 1.37em; }
+
+.en-plate {
+	color: #000; 
+	font-family: tahoma; 
+	font-size: 0.75em; 
+	margin-left: 0.05em; 
+	line-height: 3.35em;
+}
+
+.plateContainerIE11 .icon-stack {
+	line-height:1.8em;
+}
+.plateContainerIE11 input.sub-number {
+	line-height:0.6em;
+}
+.plateContainerIE11 .motorcycle .plate-input {
+	line-height:0em;
+}
+.plateContainerIE11 .motorcycle .pchar0, 
+.plateContainerIE11 .motorcycle .pchar1, 
+.plateContainerIE11 .motorcycle .pchar2 {
+	margin-top:0.05em;
+}
+.plateContainerIE11 .motorcycle input.pchar3, 
+.plateContainerIE11 .motorcycle input.pchar4, 
+.plateContainerIE11 .motorcycle input.pchar5, 
+.plateContainerIE11 .motorcycle input.pchar6, 
+.plateContainerIE11 .motorcycle input.pchar7, 
+.plateContainerIE11 .motorcycle input.pchar8 {
+	margin-top:0.6em;
+}
+.plateContainerIE11 .motorcycle span.pchar3, 
+.plateContainerIE11 .motorcycle span.pchar4, 
+.plateContainerIE11 .motorcycle span.pchar5, 
+.plateContainerIE11 .motorcycle span.pchar6, 
+.plateContainerIE11 .motorcycle span.pchar7, 
+.plateContainerIE11 .motorcycle span.pchar8 {
+	line-height:1.85em;
+}
+.plateContainerIE11 .historical input.plate-char {
+	line-height:0em;
+	margin-top:0.6em;
+	height:1em;
+}
+.plateContainerIE11 .freeTradeZone input.plate-char {
+	line-height:0em;
+	margin-top:0.03em;
+}
+
+.plateContainerChrome .plate-input {
+	top:-0.15em;
+}
+.plateContainerChrome .motorcycle .plate-input {
+	top:-0.23em;
+	height:0.8em;
+}
+.plateContainerChrome .motorcycle input.pchar3, 
+.plateContainerChrome .motorcycle input.pchar4, 
+.plateContainerChrome .motorcycle input.pchar5, 
+.plateContainerChrome .motorcycle input.pchar6, 
+.plateContainerChrome .motorcycle input.pchar7 {
+	top:-0.55em;
+	height:1.1em;
+}
+.plateContainerChrome .historical .plate-input {
+	top:-0.18em;
+	height:1em;
+}
+.plateContainerChrome input.sub-number {
+	height:1.1em;
+	top:-0.32em;
+}

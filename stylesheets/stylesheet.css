@@ -273,7 +273,7 @@ Full-Width Styles
   display: block;
   position: absolute;
   top:0;
-  right: 10px;
+  left: 10px;
   z-index: 10;
   padding: 10px 50px 10px 10px;
   color: #fff;
@@ -318,7 +318,7 @@ Full-Width Styles
   width: 210px;
   z-index: 10;
   bottom: -40px;
-  right: 0;
+  left: 0;
   height: 70px;
   background: url('../images/icon_download.png') no-repeat 0% 90%;
 }
