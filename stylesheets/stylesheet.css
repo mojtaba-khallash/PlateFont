@@ -421,3 +421,16 @@ Small Device Styles
   }
 
 }
+.sample {
+	font-size: 100px; 
+	direction: ltr; 
+	width: 100%;
+	background: #d7d7d7;
+    border-radius: 5px;
+}
+table.sample , table.sample td {
+	border: 0px solid transparent;
+}
+.sign {
+	font-size: 0.5em;
+}

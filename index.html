@@ -108,9 +108,39 @@
 				معرفی
 			</h2>
 
-			<p>
+			<p style="text-align: justify">
+				در هر برنامه ای که با پلاک خودروها سر و کار داشته باشید نیاز خواهید داشت تا پلاک را به فرمت مناسب از کاربر دریافت کرده و
+				به شکل واقعی نمایش دهید. ما در این پروژه یک آیکون فونت به همراه پلاگین jQuery برای دریافت و نمایش پلاک در صفحات وب طراحی کردیم.
+				اما شما می‌توانید از این آیکون فونت در هر برنامه دیگری نیز استفاده نمایید.
 			</p>
-			<hr/>
+			<p style="text-align: justify">
+				برای نمایش هر کدام از قطعات پلاک یک کارکتر مجزا تعریف شده است که با هر کارکتر بخشی از پلاک را تولید خواهد کرد.
+				هر کدام از این کارکترها رنگ مناسب داده شده و از روی هم قرار دادن آن‌ها پلاک نهایی تولید شده است.
+			</p>
+			<table class="sample">
+				<tr>
+					<td><span style="color:#0147A9;" class="icon">#</span></td>
+					<td class="sign">+</td>
+					<td><span style="color:#FFFFFF;" class="icon">"</span></td>
+					<td class="sign">+</td>
+					<td><span style="color:#00A651;" class="icon">$</span></td>
+					<td class="sign">+</td>
+					<td><span style="color:#ED1C24;" class="icon">%</span></td>
+					<td class="sign">=</td>
+					<td class="icon-stack" style="width: 75px;">
+						<span style="color:#0147A9;" class="icon icon-stack-2x">#</span>
+						<span style="color:#FFFFFF;" class="icon icon-stack-2x">"</span>
+						<span style="color:#00A651;" class="icon icon-stack-2x">$</span>
+						<span style="color:#ED1C24;" class="icon icon-stack-2x">%</span>
+					</td>
+				</tr>
+			</table>
+			<h2>ویژگی‌ها</h2>
+			<ul>
+				<li>قابلیت بزرگنمایی پلاک بدون افت کیفیت</li>
+				<li>نمایش انواع مختلف پلاک (ملی، تشریفات، موتور، تاریخی و مناطق آزاد)</li>
+				<li>یکسان بودن ظاهر پلاک در حالت دریافت و نمایش </li>
+			</ul>
 			<div class="container-full">
 			  <h2>دمو</h2>
 				<div class="row">
@@ -140,7 +170,7 @@
 						اندازه:
 					</div>
 					<div class="col-xs-6">
-						<input class="form-control" type="text" id="txtSize" value="100"/>
+						<input class="form-control" type="text" id="txtSize" value="80"/>
 					</div>
 				</div>
 				<div class="row" id="trPlace" style="display:none;">
@@ -181,9 +211,18 @@
 
 			<br/>
 
-			<div style="direction:ltr;overflow:auto; height: 70%; min-height: 160px;">
+			<div style="direction:ltr;overflow:auto; height: 70%; min-height: 300px;">
 				<div id="plate-show"></div>
 			</div>
+			
+			<h2>
+				کارهای مشابه
+			</h2>
+			<p style="text-align: justify">
+				مشابه این پروژه بدون استفاده از فونت آیکون برای برنامه‌های
+				<a href="https://github.com/mahdi-ataollahi/PlateModel.Silverlight">Silverlight</a> و 
+				<a href="https://github.com/mahdi-ataollahi/PlateModel.Wpf">WPF</a> انجام شده است.
+			</p>
 		</section>
     </div>
 
