@@ -1,0 +1,151 @@
+﻿<html>
+	<head>
+		<title>پلاک</title>
+	
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <!--[if IE]>
+            <link href="css/style_ie.css" rel="stylesheet" type="text/css" />
+        <![endif]-->
+        <!--[if !IE]><!--><link href="css/style_nie.css" rel="stylesheet" type="text/css" /><!--<![endif]-->
+        <link href="css/bootstrap-rtl.css" rel="stylesheet" type="text/css" />
+		<style>
+			body * {
+				font-family: 'B Nazanin';
+			}
+			.row {
+				margin: 10px;
+			}
+		</style>
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript" ></script>
+		<script src="js/plate.js" type="text/javascript" ></script>
+		<script src="js/bootstrap-rtl.js" type="text/javascript" ></script>
+		<script type="text/javascript">
+			var plateEdit;
+			var plate;
+			var changeType = true;
+			var type = 'national';
+			$(document).ready(function() {
+				plateEdit = createPlate('plate-edit', '12D52311', true, '30px');
+				updatePlate();
+			});
+			
+			function createPlate(id, number, edit, size, place) {
+				return new $.plate($('#' + id), {
+					type	: type,
+					number	: number, 
+					edit	: edit,
+					size 	: size,
+					place 	: place
+				});
+
+			}
+			
+			function updatePlate() {
+				var number = plateEdit.get_number();
+				var size = parseInt($('#txtSize').val(),10);
+				var place = $('#txtPlace').attr('value');
+				
+				if (changeType) {
+					plate = createPlate('plate-show', number, false, size + 'px', place);
+				}
+				else {
+					plate.set_type(type);
+					plate.set_number(number);
+					plate.set_size(size + 'px');
+					plate.set_place(place);
+					plate.refresh();
+				}
+			}
+			
+			function setType(val, number) {
+				type = val;
+				$('#plateType .btn-primary').removeClass('btn-primary').addClass('btn-default');
+				$('.btn-' + val).removeClass('btn-default').addClass('btn-primary');
+				
+				var place = $('#txtPlace').attr('value');
+				changeType = true;
+				plateEdit = createPlate('plate-edit', number, true, '30px', place);
+				
+				if (val == 'freeTradeZone')
+					$('#trPlace').show();
+				else
+					$('#trPlace').hide();
+			}
+		</script>
+	</head>
+	<body style="padding: 0px 20px;direction:rtl;">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-1">
+					نوع پلاک:
+				</div>
+				<div class="col-xs-4">
+					<div class="btn-group" id="plateType">
+						<button type="button" class="btn btn-primary btn-national" onclick="setType('national', '12D52311')">ملی</button>
+						<button type="button" class="btn btn-default btn-protocol" onclick="setType('protocol', '1252')">تشریفاتی</button>
+						<button type="button" class="btn btn-default btn-motorcycle" onclick="setType('motorcycle', '12345678')">موتور</button>
+						<button type="button" class="btn btn-default btn-historical" onclick="setType('historical', '38796')">تاریخی</button>
+						<button type="button" class="btn btn-default btn-freeTradeZone" onclick="setType('freeTradeZone', '98765')">مناطق آزاد</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-1">
+					شماره پلاک:
+				</div>
+				<div class="col-xs-3">
+					<div id="plate-edit"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-1">
+					اندازه:
+				</div>
+				<div class="col-xs-2">
+					<input class="form-control" type="text" id="txtSize" value="100"/>
+				</div>
+			</div>
+			<div class="row" id="trPlace" style="display:none;">
+				<div class="col-xs-1">
+					منطقه:
+				</div>
+				<div class="col-xs-2">
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							<span id="txtPlace" style="padding: 0px 0px 0px 5.5em;" value="anzali">انزلی</span>
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a onclick="setPlace('anzali', 'انزلی')">انزلی</a></li>
+							<li><a onclick="setPlace('aras', 'ارس')">ارس</a></li>
+							<li><a onclick="setPlace('arvand', 'اروند')">اروند</a></li>
+							<li><a onclick="setPlace('kish', 'کیش')">کیش</a></li>
+							<li><a onclick="setPlace('maku', 'ماکو')">ماکو</a></li>
+						</ul>
+						<script>
+							function setPlace(place, text) {
+								$('#txtPlace').attr('value', place).text(text);
+								plateEdit.set_place(place);
+								plateEdit.refresh();
+							}
+						</script>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-1">
+				</div>
+				<div class="col-xs-2">
+					<input class="btn btn-success btn-lg" type="button" value="ذخیره" onclick="updatePlate()"/>
+				</div>
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div style="direction:ltr;overflow:auto; height: 70%;">
+			<div id="plate-show"></div>
+		</div>
+	</body>
+</html>
