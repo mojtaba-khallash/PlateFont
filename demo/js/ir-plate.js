@@ -1,6 +1,16 @@
 // jQuery Plugin
-// version 0.1, Sep 8th, 2014
+// version 0.2, Dec 18th, 2014
 // by Mojtaba Khallash
+var validLetters = [
+	',',';','Q','[','\\',
+	'd','f','g','h','i',
+	'j','k','l','n','q',
+	'r','s','u','w','x'
+];
+function isValidLetter(letter) {
+	return validLetters.indexOf(letter) >= 0;
+}
+
 (function($) {
 	$.plate = function(element, options) {
 		var defaults = {
@@ -11,11 +21,12 @@
 			// historical
 			// freeTradeZone
 			type 	: 	'national',
-			number 	: 	'12D52311',
+			number 	: 	'12n52311',
 			size 	: 	'100px',
 			place	:	'anzali',
 			edit	:	false
 		}
+		
 		
 		var totalInput = 8;
 		var plugin = this;
@@ -78,17 +89,15 @@
 			var place = $(plugin.element);
 			place.addClass('plateContainer')
 			place.html('');
-			
-			plugin.settings.number = plugin.settings.number.toUpperCase();
-			
+						
 			if (plugin.settings.type == 'national' || plugin.settings.type == 'protocol') {
 				// Part 1
 				var part1 = $('<div>').addClass('icon-stack');
-				part1.html(	'<span class="icon icon-stack-2x" style="color:#0147A9;">&#x0023;</span>' +
-							'<span class="icon icon-stack-2x" style="color:#FFFFFF;">&#x0022;</span>' +
-							'<span class="icon icon-stack-2x" style="color:#00A651;">&#x0024;</span>' +
-							'<span class="icon icon-stack-2x" style="color:#ED1C24;">&#x0025;</span>' +
-							'<span class="icon stack-fitst icon-stack-2x">&#x0021;</span>');
+				part1.html(	'<span class="icon icon-stack-2x" style="color:#0147A9;">&#x007D;</span>' +
+							'<span class="icon icon-stack-2x" style="color:#FFFFFF;">&#x007C;</span>' +
+							'<span class="icon icon-stack-2x" style="color:#00A651;">&#x007E;</span>' +
+							'<span class="icon icon-stack-2x" style="color:#ED1C24;">&#x00A1;</span>' +
+							'<span class="icon stack-fitst icon-stack-2x">&#x007B;</span>');
 				place.append(part1);
 				
 				if (plugin.settings.type == 'national') {
@@ -101,15 +110,15 @@
 						if (i == 2) {			// letter
 							letter = current;
 
-							if (letter < 'A' || letter > 'Z')
+							if (!isValidLetter(letter))
 								current = '&#x0020;';
 							var tmp = $('<div>').addClass('icon-stack');
 							if (plugin.settings.edit) {
-								tmp.html(	'<span class="icon stack-fitst icon-stack-2x">&#x0028;</span>' + 
-											'<input type="text" ind="' + i + '" value="' + current + '" maxlength="1" onkeypress="return event.charCode >= 65 && event.charCode <= 90" class="plate-char plate-input plate-letter icon-stack-2x number-' + i + '" style="width: 0.5em;"/>');
+								tmp.html(	'<span class="icon stack-fitst icon-stack-2x">&#x00A4;</span>' + 
+											'<input type="text" ind="' + i + '" value="' + current + '" maxlength="1" onkeypress="return isValidLetter(String.fromCharCode(event.charCode));" class="plate-char plate-input plate-letter icon-stack-2x number-' + i + '" style="width: 0.5em;"/>');
 							}
 							else {
-								tmp.html(	'<span class="icon stack-fitst icon-stack-2x">&#x0028;</span>' + 
+								tmp.html(	'<span class="icon stack-fitst icon-stack-2x">&#x00A4;</span>' + 
 											'<span class="icon icon-stack-2x plate-char">' + current + '</span>');
 							}
 
@@ -121,11 +130,11 @@
 								number = '&#x0020;';
 							var tmp = $('<div>').addClass('icon-stack');
 							if (plugin.settings.edit) {
-								tmp.html(	'<span class="icon stack-fitst icon-stack-2x">&#x0027;</span>' + 
+								tmp.html(	'<span class="icon stack-fitst icon-stack-2x">&#x00A3;</span>' + 
 											'<input type="text" ind="' + i + '" value="' + number + '" maxlength="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="plate-char plate-input plate-number icon-stack-2x number-' + i + '"/>');
 							}
 							else {
-								tmp.html(	'<span class="icon stack-fitst icon-stack-2x">&#x0027;</span>' + 
+								tmp.html(	'<span class="icon stack-fitst icon-stack-2x">&#x00A3;</span>' + 
 											'<span class="icon icon-stack-2x plate-char">' + number + '</span>');
 							}
 
@@ -136,7 +145,7 @@
 				
 					// Part 3
 					var part3 = $('<div>').addClass('icon-stack');
-					part3.html('<span class="icon stack-fitst icon-stack-2x">&#x0026;</span>');
+					part3.html('<span class="icon stack-fitst icon-stack-2x">&#x00A2;</span>');
 					place.append(part3);
 					
 					// Part 4
@@ -158,12 +167,12 @@
 					}
 
 					if (plugin.settings.edit) {
-						part4.html(	'<span class="icon stack-fitst icon-stack-2x">&#x0029;</span>' +
+						part4.html(	'<span class="icon stack-fitst icon-stack-2x">&#x00A5;</span>' +
 									'<input type="text" ind="6" value="' + leftLetter + '" maxlength="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="plate-char plate-input sub-number icon-stack-2x" style=""/>' +
 									'<input type="text" ind="7" value="' + rightLetter + '" maxlength="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="plate-char plate-input sub-number icon-stack-2x" style="margin-left: 0.32em;"/>');
 					}
 					else {
-						part4.html(	'<span class="icon stack-fitst icon-stack-2x">&#x0029;</span>' +
+						part4.html(	'<span class="icon stack-fitst icon-stack-2x">&#x00A5;</span>' +
 									'<span class="icon icon-stack-2x plate-char sub-number">' + leftLetter + '</span>' +
 									'<span class="icon icon-stack-2x plate-char sub-number" style="margin-left: 0.306em;">' + rightLetter + '</span>');
 					}
@@ -172,8 +181,8 @@
 				else if (plugin.settings.type == 'protocol') {
 					// Part 2
 					var part2 = $('<div>').addClass('icon-stack');
-					part2.html(	'<span class="icon stack-fitst icon-stack-2x">&#x002A;</span>' +
-								'<span class="icon icon-stack-2x">&#x0040;</span>');
+					part2.html(	'<span class="icon stack-fitst icon-stack-2x">&#x00A8;</span>' +
+								'<span class="icon icon-stack-2x">&#x00A9;</span>');
 					place.append(part2);
 					
 					// Part 3
@@ -186,11 +195,11 @@
 							number = '&#x0020;';
 						var tmp = $('<div>').addClass('icon-stack');
 						if (plugin.settings.edit) {
-							tmp.html(	'<span class="icon stack-fitst icon-stack-2x">&#x0027;</span>' + 
+							tmp.html(	'<span class="icon stack-fitst icon-stack-2x">&#x00A3;</span>' + 
 										'<input type="text" ind="' + i + '" value="' + number + '" maxlength="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="plate-char plate-input plate-number icon-stack-2x number-' + i + '"/>');
 						}
 						else {
-							tmp.html(	'<span class="icon stack-fitst icon-stack-2x">&#x0027;</span>' + 
+							tmp.html(	'<span class="icon stack-fitst icon-stack-2x">&#x00A3;</span>' + 
 										'<span class="icon icon-stack-2x plate-char">' + number + '</span>');
 						}
 
@@ -200,16 +209,16 @@
 				}
 				
 				var part5 = $('<div>').addClass('icon-stack');
-				part5.html(	'<span class="icon stack-fitst icon-stack-2x">&#x002B;</span>');
+				part5.html(	'<span class="icon stack-fitst icon-stack-2x">&#x00A6;</span>');
 				place.append(part5);
 			}
 			else if (plugin.settings.type == 'motorcycle') {
 				var part1 = '<div class="icon-stack motorcycle">' + 
-								'<span class="icon icon-stack-2x">,</span>' +
-								'<span class="icon icon-stack-2x stack-fitst" style="color:#0147A9;">.</span>' +
-								'<span class="icon icon-stack-2x" style="color:#FFFFFF;">-</span>' +
-								'<span class="icon icon-stack-2x" style="color:#00A651;">:</span>' +
-								'<span class="icon icon-stack-2x" style="color:#ED1C24;">;</span>';
+								'<span class="icon icon-stack-2x">&#x00AA;</span>' +
+								'<span class="icon icon-stack-2x stack-fitst" style="color:#0147A9;">&#x00AC;</span>' +
+								'<span class="icon icon-stack-2x" style="color:#FFFFFF;">&#x00AB;</span>' +
+								'<span class="icon icon-stack-2x" style="color:#00A651;">&#x00AE;</span>' +
+								'<span class="icon icon-stack-2x" style="color:#ED1C24;">&#x00AF;</span>';
 				
 				for (var i = 0; i < 8; i++) {
 					var current = plugin.settings.number[i];
@@ -231,18 +240,18 @@
 			else if (plugin.settings.type == 'historical') {
 				var part1 = '<div class="icon-stack historical">' + 
 								'<img alt="tehran" src="pic/tehran.png" class="img-plate">' +
-								'<span class="icon icon-stack-2x stack-fitst" style="color:#0147A9;">&#x00A2</span>' +
-								'<span class="icon icon-stack-2x" style="color:#FFF;">£</span>' +
-								'<span style="color:#FFFFFF;" class="icon icon-stack-2x">¤</span>' +
-								'<span style="color:#00A651;" class="icon icon-stack-2x">¥</span>' +
-								'<span class="icon icon-stack-2x" style="color:#ED1C24;">¦</span>';
+								'<span class="icon icon-stack-2x stack-fitst" style="color:#0147A9;">&#x00B1;</span>' +
+								'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00B2;</span>' +
+								'<span style="color:#FFFFFF;" class="icon icon-stack-2x">&#x00B3;</span>' +
+								'<span style="color:#00A651;" class="icon icon-stack-2x">&#x00B4;</span>' +
+								'<span class="icon icon-stack-2x" style="color:#ED1C24;">&#x00B5;</span>';
 				
 				part1 +=	'</div>';
 				place.append(part1);
 				
 				var part2 = '<div class="icon-stack historical">' + 
-								'<span class="icon icon-stack-2x" style="color:#643200;">&#x00A7;</span>' +
-								'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00A8;</span>';
+								'<span class="icon icon-stack-2x" style="color:#643200;">&#x00B7;</span>' +
+								'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00B8;</span>';
 				for (var i = 0; i < 5; i++) {
 					var current = plugin.settings.number[i];
 					
@@ -260,17 +269,17 @@
 			}
 			else if (plugin.settings.type == 'freeTradeZone') {
 				var part1 = '<div class="icon-stack freeTradeZone">' + 
-								'<span class="icon icon-stack-2x stack-fitst" style="color:#0147A9;">&#x00A2</span>' +
-								'<span style="color:#FFFFFF;" class="icon icon-stack-2x">&#x00B8;</span>' +
-								'<span style="color:#00A651;" class="icon icon-stack-2x">¥</span>' +
-								'<span class="icon icon-stack-2x" style="color:#ED1C24;">¦</span>' +
+								'<span class="icon icon-stack-2x stack-fitst" style="color:#0147A9;">&#x00B1;</span>' +
+								'<span style="color:#FFFFFF;" class="icon icon-stack-2x">&#x00CC;</span>' +
+								'<span style="color:#00A651;" class="icon icon-stack-2x">&#x00B4;</span>' +
+								'<span class="icon icon-stack-2x" style="color:#ED1C24;">&#x00B5;</span>' +
 								get_place_chars();
 				
 				part1 +=	'</div>';
 				place.append(part1);
 				
 				var part2 = '<div class="icon-stack freeTradeZone">' + 
-								'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00A7;</span>' +
+								'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00B7;</span>' +
 								'<span class="icon-stack-2x en-plate">' + plugin.settings.number.substring(0, totalInput) + '</span>';
 				for (var i = 0; i < 5; i++) {
 					var current = plugin.settings.number[i];
@@ -337,11 +346,16 @@
 					break;
 				default:
 					if (isLetter) {
-						// a - z
-						if (65 <= keyCode && keyCode <= 90) {
-							letter = key.toUpperCase();
-							$(this).val(letter);
-							set_backgound();
+						key = key.toLowerCase();
+						if (key == 'ü') key = '\\';
+						if (key == 'û') key = '[';
+						if (key == '¼') key = ',';
+						if (key == 'º') key = ';';
+						// valid letter
+						if (isValidLetter(key)) {
+							$(this).val(key);
+							letter = key;
+							set_backgound(letter);
 							goto_next(ind);
 						}
 					}
@@ -369,7 +383,7 @@
 			plugin.element.find('input:eq(' + (index+1) + ')').select().focus();
 		}
 		
-		var set_backgound = function() {
+		var set_backgound = function(letter) {
 			plugin.element.css({
 				color		: 	get_color(letter),
 				background	: 	get_background(letter)
@@ -385,8 +399,8 @@
 					switch(letter) {
 						default:
 							return '#000000';
-						case 'A':
-						case 'P':
+						case 'h':
+						case '\\':
 							return '#FFFFFF';
 					}
 				case 'protocol':
@@ -404,13 +418,13 @@
 					switch(letter) {
 						default:
 							return '#FFFFFF';
-						case 'A':
+						case 'h':
 							return '#ED1C24';
-						case 'P':
+						case '\\':
 							return '#005329';
-						case 'E':
-						case 'K':
-						case 'X':
+						case 'u':
+						case ';':
+						case 'j':
 							return '#FFC913';
 					}
 				case 'protocol':
@@ -426,24 +440,24 @@
 		var get_place_chars = function() {
 			switch (plugin.settings.place) {
 				case 'anzali':
-					return 	'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00B1</span>' +
-							'<span class="icon icon-stack-2x" style="color:#FDB913;">&#x00B2</span>' +
-							'<span class="icon icon-stack-2x" style="color:#0064B0;">&#x00B3</span>' +
-							'<span class="icon icon-stack-2x" style="color:#186131;">&#x00B4</span>';
+					return 	'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00C3;</span>' +
+							'<span class="icon icon-stack-2x" style="color:#FDB913;">&#x00C4;</span>' +
+							'<span class="icon icon-stack-2x" style="color:#0064B0;">&#x00C5;</span>' +
+							'<span class="icon icon-stack-2x" style="color:#186131;">&#x00C6;</span>';
 				case 'aras':
-					return 	'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00AE</span>' +
-							'<span class="icon icon-stack-2x" style="color:#1D9E4F;">&#x00AF</span>' +
-							'<span class="icon icon-stack-2x" style="color:#FAA61A;">&#x00B0</span>';
+					return 	'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00BF;</span>' +
+							'<span class="icon icon-stack-2x" style="color:#1D9E4F;">&#x00C0;</span>' +
+							'<span class="icon icon-stack-2x" style="color:#FAA61A;">&#x00C1;</span>';
 				case 'arvand':
-					return  '<span class="icon icon-stack-2x" style="color:#FFF;">&#x00AA</span>' +
-							'<span class="icon icon-stack-2x" style="color:#F14B34;">&#x00AB</span>' +
-							'<span class="icon icon-stack-2x" style="color:#0394D3;">&#x00AC</span>';
+					return  '<span class="icon icon-stack-2x" style="color:#FFF;">&#x00BB;</span>' +
+							'<span class="icon icon-stack-2x" style="color:#F14B34;">&#x00BC;</span>' +
+							'<span class="icon icon-stack-2x" style="color:#0394D3;">&#x00BD;</span>';
 				case 'kish':
-					return 	'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00A9</span>';
+					return 	'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00BA;</span>';
 				case 'maku':
-					return 	'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00B5</span>' +
-							'<span class="icon icon-stack-2x" style="color:#5A5374;">&#x00B6</span>' +
-							'<span class="icon icon-stack-2x" style="color:#FEE46B;">&#x00B7</span>';
+					return 	'<span class="icon icon-stack-2x" style="color:#FFF;">&#x00C8;</span>' +
+							'<span class="icon icon-stack-2x" style="color:#5A5374;">&#x00C9;</span>' +
+							'<span class="icon icon-stack-2x" style="color:#FEE46B;">&#x00CA;</span>';
 				default:
 					return '';
 			}

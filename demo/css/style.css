@@ -1,9 +1,9 @@
 @font-face {
 	font-family: 'plate';
-	src: url('../font/plate.eot');
-	src: url('../font/plate.eot?#iefix') format('embedded-opentype'),
-		 url('../font/plate.woff') format('woff'),
-		 url('../font/plate.ttf') format('truetype');
+	src: url('../font/IR Plate.eot');
+	src: url('../font/IR Plate.eot?#iefix') format('embedded-opentype'),
+		 url('../font/IR Plate.woff') format('woff'),
+		 url('../font/IR Plate.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
