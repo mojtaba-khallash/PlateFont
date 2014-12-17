@@ -25,7 +25,7 @@
 	</style>
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript" ></script>
-	<script src="javascripts/plate.js" type="text/javascript" ></script>
+	<script src="javascripts/ir-plate.js" type="text/javascript" ></script>
 	<script src="javascripts/bootstrap-rtl.js" type="text/javascript" ></script>
 	<script type="text/javascript">
 		var plateEdit;
@@ -33,7 +33,7 @@
 		var changeType = true;
 		var type = 'national';
 		$(document).ready(function() {
-			plateEdit = createPlate('plate-edit', '12D52311', true, '30px');
+			plateEdit = createPlate('plate-edit', '12n52311', true, '30px');
 			updatePlate();
 		});
 		
@@ -119,19 +119,19 @@
 			</p>
 			<table class="sample">
 				<tr>
-					<td><span style="color:#0147A9;" class="icon">#</span></td>
+					<td><span style="color:#0147A9;" class="icon">&#x007D;</span></td>
 					<td class="sign">+</td>
-					<td><span style="color:#FFFFFF;" class="icon">"</span></td>
+					<td><span style="color:#FFFFFF;" class="icon">&#x007C;</span></td>
 					<td class="sign">+</td>
-					<td><span style="color:#00A651;" class="icon">$</span></td>
+					<td><span style="color:#00A651;" class="icon">&#x007E;</span></td>
 					<td class="sign">+</td>
-					<td><span style="color:#ED1C24;" class="icon">%</span></td>
+					<td><span style="color:#ED1C24;" class="icon">&#x00A1;</span></td>
 					<td class="sign">=</td>
 					<td class="icon-stack" style="width: 75px;">
-						<span style="color:#0147A9;" class="icon icon-stack-2x">#</span>
-						<span style="color:#FFFFFF;" class="icon icon-stack-2x">"</span>
-						<span style="color:#00A651;" class="icon icon-stack-2x">$</span>
-						<span style="color:#ED1C24;" class="icon icon-stack-2x">%</span>
+						<span style="color:#0147A9;" class="icon icon-stack-2x">&#x007D;</span>
+						<span style="color:#FFFFFF;" class="icon icon-stack-2x">&#x007C;</span>
+						<span style="color:#00A651;" class="icon icon-stack-2x">&#x007E;</span>
+						<span style="color:#ED1C24;" class="icon icon-stack-2x">&#x00A1;</span>
 					</td>
 				</tr>
 			</table>
@@ -149,7 +149,7 @@
 					</div>
 					<div class="col-xs-10">
 						<div class="btn-group" id="plateType">
-							<button type="button" class="btn btn-primary btn-national" onclick="setType('national', '12D52311')">ملی</button>
+							<button type="button" class="btn btn-primary btn-national" onclick="setType('national', '12n52311')">ملی</button>
 							<button type="button" class="btn btn-default btn-protocol" onclick="setType('protocol', '1252')">تشریفاتی</button>
 							<button type="button" class="btn btn-default btn-motorcycle" onclick="setType('motorcycle', '12345678')">موتور</button>
 							<button type="button" class="btn btn-default btn-historical" onclick="setType('historical', '38796')">تاریخی</button>
