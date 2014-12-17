@@ -1,5 +1,5 @@
 // jQuery Plugin
-// version 1.0, Sep 8th, 2014
+// version 0.1, Sep 8th, 2014
 // by Mojtaba Khallash
 (function($) {
 	$.plate = function(element, options) {
