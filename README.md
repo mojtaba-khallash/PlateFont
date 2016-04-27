@@ -1,7 +1,7 @@
 PlateFont
 ==============
 
-9 November 2014
+9 November 2014 [![License](http://img.shields.io/:license-mit-blue.svg)](http://badges.mit-license.org)
 
 A vehicle license plate -as it's defined in Wikipedia- is a metal or plastic plate attached to a motor vehicle or trailer for official identification purposes.
 If you want to build a program that shows license plates, you can use this font-icon to demonstrate high quality license plates which are similar to the real plates.
