@@ -366,6 +366,9 @@ function isValidLetter(letter) {
 							$(this).parent().find('.en-plate').text(plugin.get_number());
 							goto_next(ind);
 						}
+						else if (96 <= keyCode && keyCode <= 105) {
+							goto_next(ind);
+						}
 					}
 					break;
 			}
